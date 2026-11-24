@@ -1,10 +1,10 @@
 # MILK RUN ／ ミルク防衛隊 0.18.0
 
-赤ちゃんにミルクを届けながら、東西にある2つのおうちを守るゲームです。1面で2分間の防衛を耐えて王冠ピーマンを倒すと、報酬を選んで2面へ進みます。
-
-本作は、AIC主催の講習会「[Codexを使いこなそう！アイディアを形にするUnity × AIゲーム制作ワークショップ](https://aic.keio.ac.jp/session_post/unity-ai-game-workshop/)」で制作しました。
+慶應AIC主催の講習会「[Codexを使いこなそう！アイディアを形にするUnity × AIゲーム制作ワークショップ](https://aic.keio.ac.jp/session_post/unity-ai-game-workshop/)」で制作しました。
 
 [unityroomで公開中の「MILK RUN」をプレイする](https://unityroom.com/games/milkrun)
+
+赤ちゃんにミルクを届けながら、東西にある2つのおうちを守るゲームです。1面で2分間の防衛を耐えて王冠ピーマンを倒すと、報酬を選んで2面へ進みます。
 
 ## 最初の配達
 
