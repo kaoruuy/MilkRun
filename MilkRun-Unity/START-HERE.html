@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ミルク防衛隊 0.18.0｜Windows開発引き継ぎ</title>
+  <style>
+    :root { color-scheme: light; --ink: #263547; --muted: #4b5c67; --paper: #fffdf7; --line: #dedbcc; --link: #1c645a; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f2efe5; color: var(--ink); font: 16px/1.75 "Yu Gothic UI", "Meiryo", system-ui, sans-serif; }
+    header { background: var(--ink); color: #fffdf7; }
+    .inside, main { width: min(100% - 36px, 960px); margin: auto; }
+    .inside { padding: 40px 0 27px; }
+    .edition { margin: 0; color: #a1dfce; font-weight: 700; }
+    h1 { margin: 5px 0 3px; font-size: clamp(27px, 5vw, 43px); line-height: 1.3; }
+    .lead { max-width: 670px; margin: 13px 0 22px; color: #ecf1ee; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    nav a { color: #ffdc97; font-weight: 700; }
+    main { padding: 12px 0 35px; }
+    section { margin-top: 18px; padding: 23px 26px; background: var(--paper); border: 1px solid var(--line); border-radius: 13px; }
+    h2 { margin: 0 0 12px; font-size: 24px; line-height: 1.4; }
+    h3 { margin: 18px 0 4px; font-size: 17px; }
+    p { margin: 8px 0; }
+    ol, ul { padding-left: 1.55em; margin: 6px 0; }
+    li + li { margin-top: 7px; }
+    code { font: .93em "Consolas", monospace; overflow-wrap: anywhere; background: #edeee7; padding: .1em .25em; border-radius: .25em; }
+    a { color: var(--link); text-underline-offset: .15em; }
+    .note { margin-top: 14px; padding: 10px 14px; background: #e7f3ee; border-left: 3px solid #398477; border-radius: 4px; }
+    .details { color: var(--muted); font-size: .94em; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { border-bottom: 1px solid var(--line); vertical-align: top; padding: 9px 8px; }
+    th { background: #eeefe7; }
+    td:first-child { width: 27%; font-weight: 700; }
+    tr:last-child td { border-bottom: 0; }
+    @media (max-width: 580px) { section { padding: 17px; } th, td { padding: 7px 4px; } }
+    @media print { body { background: white; } header { background: white; color: var(--ink); } .edition, .lead, nav a { color: var(--ink); } section { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inside">
+      <p class="edition">Unity 6.3 LTS 6000.3.27f1</p>
+      <h1>ミルク防衛隊 0.18.0</h1>
+      <p class="lead">Windowsで編集を再開する手順です。赤ちゃんにミルクを届け、東西のおうちを守る三人称タワーディフェンスのUnityプロジェクトを同梱しています。</p>
+      <nav aria-label="目次">
+        <a href="#open">最初に開く</a>
+        <a href="#play">動作を確認する</a>
+        <a href="#edit">編集箇所を探す</a>
+        <a href="#build">Windows版を作る</a>
+        <a href="#share">チームに渡す</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="open">
+      <h2>Windowsで開く</h2>
+      <ol>
+        <li>エクスプローラーでZIPを右クリックし、「すべて展開」を選びます。作業先は <code>%USERPROFILE%\UnityProjects</code> など、PC上のフォルダーが分かりやすいです。</li>
+        <li>Unity Hubを起動し、各自のUnityアカウントでサインインしてライセンスを有効にします。Editorは、この版の保存・ビルドに使用した <strong>6000.3.27f1</strong> を選びます。</li>
+        <li>Unity Hubの「プロジェクト」→「追加」→「ディスクから加える（Add project from disk）」で、展開した <strong><code>MilkRun-Unity</code></strong> フォルダーを選びます。直下に <code>Assets</code>、<code>Packages</code>、<code>ProjectSettings</code> が並んでいる階層です。</li>
+        <li>プロジェクト一覧から開き、初回のインポートを待ちます。Editorの <strong><code>Assets/Scenes/ToyGarden.unity</code></strong> を開いて、上部の ▶ を押します。タイトルに <strong>体験版 0.18.0</strong> と表示されます。</li>
+      </ol>
+      <p class="note">Unity標準の Audio・IMGUI・Physics を使っています。日本語フォント、効果音、BGM、見た目に必要な素材も <code>Assets</code> に入っています。</p>
+      <p class="details"><a href="https://docs.unity.com/en-us/hub/install-hub-win-mac">Unity Hubのインストール</a> · <a href="https://unity.com/releases/editor/whats-new/6000.3.27f1">Editor 6000.3.27f1の入手先</a> · <a href="https://docs.unity.com/en-us/hub/project-manage#add-an-existing-project-from-disk">既存プロジェクトの追加手順</a></p>
+    </section>
+    <section id="play">
+      <h2>初回の動作確認</h2>
+      <ol>
+        <li><strong>導入</strong>　「プレイする」から紙芝居を進めます。右上 → 左上 → 右下 → 左下の順です。保育士を動かして屋台へ行くとミルクを受け取り、赤ちゃんに近づくと自動で渡します。</li>
+        <li><strong>チュートリアル</strong>　ハートが盾なしピーマンを倒し、盾持ちには弾かれることを確認します。ミルクを持って攻撃を試すと案内が出ます。床に置いてから、盾を割り、本体を攻撃します。</li>
+        <li><strong>1面</strong>　東西のおうちを2分守ります。残り1:00でおじいちゃんが初登場、0:00で王冠ピーマンが出ます。倒すと報酬の3択に進みます。</li>
+        <li><strong>2面</strong>　報酬を選んで決定し、お菓子の町へ進みます。1分15秒経過でクッキー将軍が東から現れ、撃破するとクリアです。</li>
+      </ol>
+      <p class="note"><strong>2面をすぐ試す</strong>　ゲーム画面を選び、<kbd>P</kbd> を押したまま <kbd>A</kbd> を押すと報酬選択へ移動します。「この報酬で2面へ」を選びます。</p>
+      <p><strong>操作</strong>　WASDで移動、マウスで視点、ホイールで距離、Spaceでジャンプ、Mで地図。Fまたは左クリックで攻撃。Eまたは右クリックで瓶を置く・拾う。寝返った子の近くで、手ぶらのままEまたは右クリックを5秒長押しするとなだめられます。</p>
+    </section>
+    <section id="edit">
+      <h2>どこを直すか</h2>
+      <p>Play開始時に <code>MilkRun.cs</code> の <code>Launch()</code> が起動します。庭やキャラクターの大部分はコードから生成されます。配置や見た目を変えるときは、下のスクリプトを編集してもう一度Playします。</p>
+      <table>
+        <thead><tr><th scope="col">変えたいもの</th><th scope="col">最初に見るファイル</th></tr></thead>
+        <tbody>
+          <tr><td>プレイヤー操作・ミルク・お世話</td><td><code>MilkRun.cs</code> の <code>HandleCare()</code>・<code>UpdateChildren()</code>。保育士の造形は <code>ToyArt.cs</code> の <code>Keeper()</code>。</td></tr>
+          <tr><td>チュートリアル</td><td><code>MilkRunGuide.cs</code> に進行と2体のピーマン、<code>MilkRunScenes.cs</code> にカメラと説明。</td></tr>
+          <tr><td>タイトル・紙芝居・HUD</td><td><code>MilkRunUI.cs</code> に表示とボタン、<code>MilkRunOpening.cs</code> に紙芝居の絵と文章、<code>MilkRunEncounters.cs</code> に初登場・寝返りの演出。</td></tr>
+          <tr><td>敵の出現・ボス</td><td>1面は <code>MilkRun.cs</code> の <code>waves</code> と <code>types</code>、2面は <code>MilkRunTown.cs</code> の <code>TownWaves</code> と <code>TownFoes</code>。時刻と敵の種類は同じ添字で対応します。ボスと敵HPは <code>MilkRunSiege.cs</code>。</td></tr>
+          <tr><td>マップ・報酬・音</td><td>道や配置は <code>ToyGarden.cs</code>、地図UIは <code>MilkRunMap.cs</code>、報酬とミルクどろぼうは <code>MilkRunTown.cs</code>。音の処理は <code>MilkRunMusic.cs</code> と <code>MilkRunSounds.cs</code>。</td></tr>
+        </tbody>
+      </table>
+      <p class="details">上のスクリプトは <code>Assets/Scripts</code> にあります。詳しい仕様とファイル一覧は同梱の <a href="MilkRun-Unity/README.md">プロジェクトREADME</a> を参照してください。</p>
+    </section>
+    <section id="build">
+      <h2>Windows版を作る</h2>
+      <ol>
+        <li>UnityのPlayを停止し、メニューの <strong>Milk Run → Build for Windows</strong> を選びます。ビルド先はWindows 64-bit、スクリプトバックエンドはMonoです。</li>
+        <li>プロジェクト内の <code>Builds/StandaloneWindows64/</code> に出力された <code>Milk Run.exe</code> を起動し、変更した場面を確認します。</li>
+        <li>プレイ用に渡すときは、<code>StandaloneWindows64</code> フォルダーごとZIPにします。実行には <code>Milk Run_Data</code> やDLLも必要です。</li>
+      </ol>
+      <p class="note">次の版番号を付ける場所は、<code>Assets/Editor/DemoBuild.cs</code> の <code>bundleVersion</code> と、<code>Assets/Scripts/MilkRunUI.cs</code> のタイトル表示です。Build for Windowsの実行時に <code>ProjectSettings</code> の版番号も更新されます。</p>
+    </section>
+    <section id="share">
+      <h2>Google Driveでチームに渡す</h2>
+      <p>引き継ぎZIPをアップロードし、必要なメンバーに共有します。受け取る人はZIPをダウンロード・展開し、この <code>START-HERE.html</code> を開いてから、各自のPC上で編集します。<a href="https://support.google.com/drive/answer/7166529?hl=ja">Google Driveの共有手順</a></p>
+      <p>次の引き継ぎには <code>Assets</code>、<code>Packages</code>、<code>ProjectSettings</code>、README、<code>.gitignore</code> を入れます。素材とスクリプトの <code>.meta</code> ファイルも一緒に渡します。<code>Library</code>、<code>Temp</code>、<code>Logs</code>、<code>UserSettings</code> はUnityがPCごとに作成します。</p>
+      <p class="details">日本語フォントのライセンスは <code>Assets/StreamingAssets/MPLUS-LICENSE.txt</code> にあります。</p>
+    </section>
+  </main>
+</body>
+</html>
